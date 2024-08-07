@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <style>
+        body {
+            font-family: 'Brush Script MT';
+            font-size: x-large;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(2, 2, 78);
+            color: #fff;
+        }
+
+        header {
+            background-image: url("./Image/9.jpg");
+            background-position: center;
+            background-size: cover;
+            padding: 10px 0;
+            height: 45vh;
+            margin-bottom: 3px;
+        }
+
+        nav {
+            display: block;
+            justify-content: space-between;
+            align-items: center;
+            width: 800px;
+            margin: 5% 15% 5% 25%;
+        }
+
+        .logo {
+            font-family: 'Brush Script MT';
+            font-size: 5em;
+            font-weight: bolder;
+            color: #f60707;
+        }
+
+        .logo img {
+            width: 100px;
+            border-radius: 10px;
+        }
+
+        .nav-links {
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px) saturate(180%);
+            font-family: 'Brush Script MT';
+            font-size: xx-large;
+            list-style: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease, background 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #f14a0d;
+            background: rgb(35, 1, 44);
+        }
+
+        @media (max-width: 1024px) {
+            nav {
+                width: 100%;
+                margin: 0;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo {
+                font-size: 4em;
+            }
+
+            .nav-links {
+                font-size: large;
+            }
+
+            .nav-links li {
+                margin: 0 10px;
+            }
+
+            .nav-links a {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                height: 35vh;
+            }
+
+            .logo {
+                font-size: 3em;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                height: 25vh;
+            }
+
+            .logo {
+                font-size: 2em;
+            }
+
+            .nav-links {
+                font-size: medium;
+            }
+
+            .nav-links a {
+                font-size: 0.9em;
+            }
+        }
+
+        .section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            border-bottom: 2px solid #f60707;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+
+        .contact-form {
+            margin-top: 20px;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            background-color: #f60707;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #d10606;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.2);
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+            color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                flex-direction: row;
+                max-width: 800px;
+            }
+
+            .nav-links {
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .logo {
+                font-size: 2.5em;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links a {
+                font-size: 1em;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .section {
+                width: 90%;
+            }
+        }
+
+        .menu-icon {
+            font-size: 2em;
+            /* Adjust the size of the icon */
+            cursor: pointer;
+            /* Change cursor to pointer on hover */
+            color: #fff;
+            /* Color of the icon */
+            display: none;
+            /* Initially hide the icon */
+            padding: 10px;
+            /* Add some padding around the icon */
+            background: rgba(0, 0, 0, 0.5);
+            /* Optional: background color with transparency */
+            border-radius: 5px;
+            /* Optional: rounded corners */
+        }
+
+        /* Media query to show the menu icon on smaller screens */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+                /* Show the icon on small screens */
+            }
+
+            .nav-links {
+                display: none;
+                /* Hide the navigation links initially */
+                flex-direction: column;
+                /* Stack the links vertically */
+                width: 100%;
+                /* Full width */
+                background: rgba(0, 0, 0, 0.8);
+                /* Background color for the dropdown */
+                position: absolute;
+                /* Position absolutely */
+                top: 60px;
+                /* Adjust top based on header height */
+                left: 0;
+                padding: 0;
+                margin: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                /* Full width */
+                text-align: center;
+                /* Center align text */
+                padding: 10px 0;
+                /* Add padding */
+            }
+
+            .nav-links a {
+                width: 100%;
+                /* Full width */
+                display: block;
+                /* Block display for full clickable area */
+                padding: 10px 0;
+                /* Add padding */
+                color: #fff;
+                /* Change text color */
+            }
+
+            .nav-links.show {
+                display: flex;
+                /* Show the nav links when menu is toggled */
+            }
+        }
+    </style>
+    <title>Contact Form</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span class="menu-icon" onclick="toggleMenu()">☰</span>
+            <div class="logo"><img src="./Image/3.jpg" alt="Logo"> Job Sniper</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="service.html">Service</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section contact-form" id="contact-form">
+            <h2>Contact Us</h2>
+            <form action="submit_form.html" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Message</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Job Sniper. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

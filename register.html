@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <style>
+        body {
+            font-family: 'Brush Script MT';
+            font-size: x-large;
+            background-color: rgb(2, 2, 78);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        header {
+            background-image: url("./Image/9.jpg");
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            padding: 10px 0;
+            height: 45vh;
+            margin-bottom: 3px;
+        }
+
+        nav {
+            display: block;
+            justify-content: space-between;
+            align-items: center;
+            width: 800px;
+            margin: 5% 15% 5% 25%;
+        }
+
+        .logo {
+            font-family: 'Brush Script MT';
+            font-size: 5em;
+            font-weight: bolder;
+            color: #f60707;
+        }
+
+        .logo img {
+            width: 100px;
+            border-radius: 10px;
+        }
+
+        .nav-links {
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px) saturate(180%);
+            font-family: 'Brush Script MT';
+            font-size: xx-large;
+            list-style: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease, background 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #f14a0d;
+            background: rgb(35, 1, 44);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 600px;
+            animation: fadeIn 2s ease-in-out;
+            margin-top: 3px;
+        }
+
+        .form-container {
+            display: none;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        .form {
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form h2 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .form label {
+            margin-top: 1em;
+        }
+
+        .form input {
+            padding: 0.5em;
+            margin-top: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .form button {
+            margin-top: 1.5em;
+            padding: 0.75em;
+            border: none;
+            border-radius: 5px;
+            background-color: #f60707;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background-color: #d10606;
+        }
+
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1em;
+        }
+
+        .toggle-container button {
+            margin: 0 1rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #f60707;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-container button:hover {
+            background-color: #d10606;
+        }
+
+        .toggle-container button:disabled {
+            background-color: #888;
+            cursor: not-allowed;
+        }
+
+        .portfolio-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .portfolio-container.active {
+            display: flex;
+        }
+
+        .portfolio-section {
+            margin-top: 2em;
+            text-align: left;
+        }
+
+        .portfolio-section h3 {
+            margin-bottom: 0.5em;
+        }
+
+        .portfolio-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .portfolio-section li {
+            background: white;
+            margin: 0.5em 0;
+            padding: 0.5em;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.2);
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: large;
+                padding: 0 10px;
+            }
+
+            header {
+                height: 30vh;
+                padding: 10px;
+            }
+
+            nav {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .menu-icon {
+                display: block;
+                font-size: 2em;
+                cursor: pointer;
+            }
+
+            .logo {
+                font-size: 2em;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 0;
+                margin: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .nav-links a {
+                width: 100%;
+                display: block;
+                padding: 10px 0;
+                color: #fff;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .container {
+                width: 100%;
+                margin: 0;
+            }
+
+            .toggle-container {
+                flex-direction: column;
+            }
+
+            .toggle-container button {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+
+            .form {
+                font-size: medium;
+            }
+
+            .form label {
+                font-size: 1em;
+            }
+
+            .form input {
+                font-size: 1em;
+            }
+
+            .form button {
+                font-size: 1em;
+            }
+
+            .portfolio-container {
+                padding: 1em;
+            }
+
+            .portfolio-section {
+                margin-top: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span class="menu-icon" onclick="toggleMenu()">☰</span>
+            <div class="logo"><img src="./Image/3.jpg"> Job Sniper</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="service.html">Service</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="toggle-container">
+            <button id="login-toggle" disabled>Login</button>
+            <button id="register-toggle">Register</button>
+        </div>
+        <div class="form-container active" id="register-form-container">
+            <form class="form" id="register-form">
+                <h2>Register</h2>
+                <label for="reg-username">Username</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="reg-email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="reg-password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="reg-confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container" id="login-form-container">
+            <form class="form" id="login-form">
+                <h2>Login</h2>
+                <label for="login-username">Username</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="login-password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="portfolio-container" id="portfolio-container">
+            <h2>Welcome to Your Portfolio</h2>
+            <p id="welcome-message"></p>
+            <div class="portfolio-section">
+                <h3>Projects</h3>
+                <ul id="projects-list">
+                    <li>Project 1: Description of project 1.</li>
+                    <li>Project 2: Description of project 2.</li>
+                    <li>Project 3: Description of project 3.</li>
+                </ul>
+            </div>
+            <div class="portfolio-section">
+                <h3>Achievements</h3>
+                <ul id="achievements-list">
+                    <li>Achievement 1: Description of achievement 1.</li>
+                    <li>Achievement 2: Description of achievement 2.</li>
+                    <li>Achievement 3: Description of achievement 3.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Job Sniper. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+        let isRegistered = false;
+        const loginToggle = document.getElementById('login-toggle');
+        const registerToggle = document.getElementById('register-toggle');
+        const registerFormContainer = document.getElementById('register-form-container');
+        const loginFormContainer = document.getElementById('login-form-container');
+        const portfolioContainer = document.getElementById('portfolio-container');
+        const welcomeMessage = document.getElementById('welcome-message');
+
+        registerToggle.addEventListener('click', () => {
+            registerFormContainer.classList.add('active');
+            loginFormContainer.classList.remove('active');
+            registerToggle.disabled = true;
+            loginToggle.disabled = false;
+        });
+
+        loginToggle.addEventListener('click', () => {
+            loginFormContainer.classList.add('active');
+            registerFormContainer.classList.remove('active');
+            loginToggle.disabled = true;
+            registerToggle.disabled = false;
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            isRegistered = true;
+            welcomeMessage.textContent = `Welcome, ${document.getElementById('username').value}!`;
+            registerFormContainer.style.display = 'none';
+            loginFormContainer.style.display = 'none';
+            portfolioContainer.style.display = 'flex';
+        });
+
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (isRegistered) {
+                welcomeMessage.textContent = `Welcome back, ${document.getElementById('username').value}!`;
+                loginFormContainer.style.display = 'none';
+                portfolioContainer.style.display = 'flex';
+            } else {
+                alert('Please register first.');
+            }
+        });
+    </script>
+</body>
+
+</html>
